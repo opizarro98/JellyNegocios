@@ -10,5 +10,6 @@ import com.ec.jellynegocios.dao.Empresa;
 
 public interface EmpresaService {
 
-    public Empresa crearDatosDeLaEmpresa(Empresa empresa);
+    public Empresa crearDatosEmpresa(Empresa empresa);
+    public Empresa buscarDatosEmpresa(Long id);
 }

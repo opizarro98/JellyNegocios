@@ -2,6 +2,7 @@ package com.ec.jellynegocios.repository;
 
 import com.ec.jellynegocios.dao.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 
@@ -14,5 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long> {
 
+    @Query("From Empresa ")
+    public Empresa findById_empresa(Long id);
 
 }

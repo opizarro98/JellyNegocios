@@ -22,15 +22,25 @@ public class EmpresaRest {
 
     @PostMapping(value = "/datosEmpresa")
     @ResponseBody
-    public ResponseEntity<Empresa> crearDatosEmpresa(@RequestBody  Empresa empresa) {
+    public ResponseEntity<Empresa> crearDatosDeLaEmpresa(@RequestBody  Empresa empresa) {
         try{
-            Empresa datosEmpresa = empresaService.crearDatosDeLaEmpresa(empresa);
+            Empresa datosEmpresa = empresaService.crearDatosEmpresa(empresa);
             return ResponseEntity.ok(datosEmpresa);
         }catch (DataAccessException e){
             return ResponseEntity.badRequest().build();
         }
-
-
-
     }
+
+    @GetMapping(value = "/buscarDatosEmpresa")
+    @ResponseBody
+    public ResponseEntity<Empresa> buscarDatosDeLaEmpresa() {
+        try{
+            Empresa datosEmpresa = empresaService.buscarDatosEmpresa(1L);
+            return ResponseEntity.ok(datosEmpresa);
+        }catch (DataAccessException e){
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+
 }

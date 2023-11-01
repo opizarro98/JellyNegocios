@@ -20,10 +20,20 @@ public class EmpresaServiceImpl implements EmpresaService {
     private EmpresaRepository empresaRepository;
 
     @Override
-    public Empresa crearDatosDeLaEmpresa(Empresa empresa) {
+    public Empresa crearDatosEmpresa(Empresa empresa) {
         try {
             return empresaRepository.save(empresa);
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Empresa buscarDatosEmpresa(Long id) {
+        try {
+            return empresaRepository.findById_empresa(id);
+        }catch (Exception e){
             e.printStackTrace();
             return null;
         }
